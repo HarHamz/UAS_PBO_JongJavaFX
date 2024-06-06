@@ -1,0 +1,81 @@
+#title, Button {
+    -fx-font-size: 1.5em;
+    -fx-font-family: "Public Sans";
+    -fx-font-weight: bold;
+    -fx-fill: #fff;
+}
+
+#title_background {
+    -fx-background-color: linear-gradient(to right, #11998e, #12c376);
+}
+
+#sidebar {
+    -fx-background-color: #fff;
+    -fx-border-style: none solid none none;
+    -fx-border-width: 1;
+    -fx-border-color: #bbbbbb;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 5, 0);
+}
+
+#main {
+    -fx-background-color: #fafafa;
+}
+
+Button {
+    -fx-align-items: center;
+    -fx-background-color: #eeeeee;
+    -fx-border-radius: 8px;
+    -fx-border-style: none;
+    -fx-box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px;
+    -fx-box-sizing: border-box;
+    -fx-text-fill: #252525;
+    -fx-cursor: pointer;
+    -fx-display: flex;
+    -fx-flex-direction: row;
+    -fx-flex-shrink: 0;
+    -fx-margin: 0;
+    -fx-padding: 10px 15px;
+    -fx-text-align: center;
+    -fx-text-transform: none;
+    -fx-transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    -fx-user-select: none;
+    -fx--webkit-user-select: none;
+    -fx-touch-action: manipulation;
+}
+
+
+
+Button#loginbutton
+{
+    -fx-align-items: center;
+    -fx-background-color: #fff;
+    -fx-border-radius: 8px;
+    -fx-border-style: none;
+    -fx-box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px;
+    -fx-box-sizing: border-box;
+    -fx-text-fill: #11998e;
+    -fx-cursor: pointer;
+    -fx-display: flex;
+    -fx-flex-direction: row;
+    -fx-flex-shrink: 0;
+    -fx-margin: 0;
+    -fx-padding: 10px 15px;
+    -fx-text-align: center;
+    -fx-text-transform: none;
+    -fx-transition: color .13s ease-in-out,background .13s ease-in-out,opacity .13s ease-in-out,box-shadow .13s ease-in-out;
+    -fx-user-select: none;
+    -fx--webkit-user-select: none;
+    -fx-touch-action: manipulation;
+}
+
+Button:hover
+{
+    -fx-background-color: #00890e;
+    -fx-text-fill: #ffffff;
+}
+
+Button.cancel
+{
+    -fx-background-color: #252525;
+    -fx-text-fill: #ffffff;
+}
