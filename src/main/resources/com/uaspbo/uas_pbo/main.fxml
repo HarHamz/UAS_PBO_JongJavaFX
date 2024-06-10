@@ -99,7 +99,16 @@
                   </Button>
                </children>
             </VBox>
-            <VBox id="main" prefHeight="200.0" prefWidth="1000.0" HBox.hgrow="ALWAYS" />
+            <VBox id="main" prefHeight="200.0" prefWidth="1000.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+                  <VBox id="sidebar" alignment="CENTER" prefHeight="40.0" prefWidth="1000.0">
+                     <children>
+                        <Text id="title" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #000; -fx-font-size: 1.2em;" text="© Jong JavaFX, 2024" />
+                        <Text id="title" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: normal; -fx-fill: #000; -fx-font-size: 1em;" text="Made for our OOP Final Project" />
+                     </children>
+                  </VBox>
+               </children></VBox>
          </children></HBox>
    </children>
 </VBox>
