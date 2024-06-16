@@ -37,5 +37,6 @@
         <mapping class="com.model.Teacher"/>
         <mapping class="com.model.Course"/>
         <mapping class="com.model.Kelas"/>
+        <mapping class="com.model.Score"/>
     </session-factory>
 </hibernate-configuration>

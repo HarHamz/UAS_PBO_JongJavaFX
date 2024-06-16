@@ -15,6 +15,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -41,18 +42,23 @@ public class Kelas {
             inverseJoinColumns = @JoinColumn(name = "student_id")
     )
     private Set<Student> students = new HashSet<>();
+
+    @OneToMany(mappedBy = "kelas")
+    private Set<Score> scores = new HashSet<>();
     
     public Set<Student> getStudents() {return students;}
     public int getId() {return id;}
     public String getClassId() {return classId;}
     public Teacher getTeacher() {return teacher;}
     public Course getCourse() {return course;}
+    public Set<Score> getScores() { return scores; }
     
     public void setId(int id) {this.id = id;}
     public void setClassId(String classId) {this.classId = classId;}
     public void setTeacher(Teacher teacher) {this.teacher = teacher;}
     public void setCourse(Course course) {this.course = course;}
     public void setStudents(Set<Student> students) {this.students = students;}
+    public void setScores(Set<Score> scores) { this.scores = scores; }
 
     public Kelas (String classId){
         this.classId = classId;

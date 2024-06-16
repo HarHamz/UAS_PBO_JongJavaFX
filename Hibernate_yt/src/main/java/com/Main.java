@@ -6,6 +6,7 @@ import com.model.Course;
 import com.model.Kelas;
 import com.model.Student;
 import com.model.Teacher;
+import com.model.Score;
 // import com.model.*;
 import com.util.HibernateUtil;
 
@@ -61,6 +62,14 @@ public class Main {
             kelas.getStudents().add(student2);
             kelas.getStudents().add(student3);
             session.persist(kelas);
+
+            Score score1 = new Score(85, kelas, student);
+            Score score2 = new Score(90, kelas, student2);
+            Score score3 = new Score(75, kelas, student3);
+
+            session.persist(score1);
+            session.persist(score2);
+            session.persist(score3);
 
             tr.commit();
 
