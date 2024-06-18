@@ -20,15 +20,15 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "kelas")
-public class Kelas {
+public class Kelas{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
+    
     @NotNull
     @Column(name = "kelas_id", nullable = false, unique = true)
     private String classId;
-
+    
     @ManyToOne(fetch = FetchType.LAZY)
     private Teacher teacher;
     
@@ -67,4 +67,5 @@ public class Kelas {
     public Kelas (String classId){
         this.classId = classId;
     }
+
 }

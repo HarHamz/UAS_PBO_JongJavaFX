@@ -12,6 +12,10 @@ import com.model.Assignment;
 // import com.model.*;
 import com.util.HibernateUtil;
 
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
 // import java.time.LocalDateTime;
 
 import org.hibernate.Session;
@@ -27,7 +31,7 @@ public class Main {
             tr = session.beginTransaction();
 
             // Create a new entity object
-            User user = new User("ninja", "12345");
+            User user = new User("Oren luar", "12345");
 
             // Save the entity (deprecated)
             // session.save(user);
@@ -36,8 +40,8 @@ public class Main {
             // Commit the transaction
             // tr.commit();
 
-            Teacher teacher = new Teacher("Jos Timanta Tarigan", "123", "001");
-            session.persist(teacher);
+            Teacher teacher1 = new Teacher("Jos Timanta Tarigan", "123", "001");
+            session.persist(teacher1);
 
             Teacher teacher2 = new Teacher("Mohammad Andri Budiman", "234", "002");
             session.persist(teacher2);
@@ -48,9 +52,9 @@ public class Main {
             Teacher teacher4 = new Teacher("Maya Silvi Lydia", "456", "004");
             session.persist(teacher4);
 
-            Student student = new Student("Kevin Maverick", "1", "001");
-            student.setSupervisor(teacher);
-            session.persist(student);
+            Student student1 = new Student("Kevin Maverick", "1", "001");
+            student1.setSupervisor(teacher1);
+            session.persist(student1);
             
             Student student2 = new Student("Harry Hamara", "2", "002");
             student2.setSupervisor(teacher2);
@@ -65,7 +69,7 @@ public class Main {
             session.persist(student4);
             
             Student student5 = new Student("Ucok", "5", "005");
-            student5.setSupervisor(teacher);
+            student5.setSupervisor(teacher1);
             session.persist(student5);
             
             Student student6 = new Student("Butet", "6", "006");
@@ -81,7 +85,7 @@ public class Main {
             session.persist(student8);
 
             Student student9 = new Student("Harry Potter", "9", "009");
-            student9.setSupervisor(teacher);
+            student9.setSupervisor(teacher1);
             session.persist(student9);
             
             Student student10 = new Student("Hermione Granger", "10", "010");
@@ -97,7 +101,7 @@ public class Main {
             session.persist(student12);
 
             Student student13 = new Student("Iron Man", "13", "013");
-            student13.setSupervisor(teacher);
+            student13.setSupervisor(teacher1);
             session.persist(student13);
             
             Student student14 = new Student("Ant Man", "14", "014");
@@ -113,7 +117,7 @@ public class Main {
             session.persist(student16);
 
             Student student17 = new Student("Steve", "17", "017");
-            student.setSupervisor(teacher);
+            student17.setSupervisor(teacher1);
             session.persist(student17);
             
             Student student18 = new Student("Alex", "18", "018");
@@ -122,15 +126,15 @@ public class Main {
 
             Student student19 = new Student("Saitama", "19", "019");
             student19.setSupervisor(teacher3);
-            session.persist(student3);
+            session.persist(student19);
 
             Student student20 = new Student("Ririn", "20", "020");
             student20.setSupervisor(teacher4);
             session.persist(student20);
             
             
-            Course course = new Course("Game Development", "ILK001");
-            session.persist(course);
+            Course course1 = new Course("Game Development", "ILK001");
+            session.persist(course1);
 
             Course course2 = new Course("Game Development Advanced", "ILK002");
             session.persist(course2);
@@ -142,9 +146,9 @@ public class Main {
             session.persist(course4);
 
             Kelas kelas = new Kelas("D101");
-            kelas.setTeacher(teacher);
-            kelas.setCourse(course);
-            kelas.getStudents().add(student);
+            kelas.setTeacher(teacher1);
+            kelas.setCourse(course1);
+            kelas.getStudents().add(student1);
             kelas.getStudents().add(student2);
             kelas.getStudents().add(student3);
             kelas.getStudents().add(student4);
@@ -194,57 +198,58 @@ public class Main {
             kelas4.getStudents().add(student20);
             session.persist(kelas4);
             
-            
+            // for (Kelas k : student1.getKelases()){
+            //     System.out.println(k.getId());
+            // }
 
-            Score score1 = new Score(85, kelas, student);
-            Score score2 = new Score(90, kelas, student2);
-            Score score3 = new Score(75, kelas, student3);
+            Set<Kelas> kelases = new HashSet<>();
+            kelases.add(kelas);
+            kelases.add(kelas2);
+            kelases.add(kelas3);
+            kelases.add(kelas4);
 
-            session.persist(score1);
-            session.persist(score2);
-            session.persist(score3);
+            Random random = new Random(221401000);
 
-            Score score5 = new Score(90, kelas2, student2);
-            Score score6 = new Score(75, kelas2, student3);
-
-            session.persist(score5);
-            session.persist(score6);
-
-            student.getScores().add(score1);
-            student2.getScores().add(score2);
-            student3.getScores().add(score3);
-            student2.getScores().add(score5);
-            student3.getScores().add(score6);
-
-            session.persist(student);
-            session.persist(student2);
-            session.persist(student3);
-
-            System.out.println(String.format("Student 1 : %.2f", student.getIPK()));
-            System.out.println(String.format("Student 1 : %.2f", student2.getIPK()));
-            System.out.println(String.format("Student 1 : %.2f", student3.getIPK()));
-            
-            student2.getKHS();
-        
-            Meeting meet1 = new Meeting("meeting ke-1 untuk kelas02", course2, kelas2, teacher2, null);
-            Meeting meet2 = new Meeting("meeting ke-2 untuk kelas02", course2, kelas2, teacher2, null);
-            Assignment asg1 = new Assignment("assignment ke-1 untuk kelas02", course2, kelas2, teacher2, null);
-
-            session.persist(meet1);
-            session.persist(meet2);
-            session.persist(asg1);
-
-            kelas2.getActivities().add(meet1);
-            kelas2.getActivities().add(meet2);
-            kelas2.getActivities().add(asg1);
-            session.persist(kelas2);
-            
-            for (Activity act: kelas2.getActivities()){
-                System.out.println("\n\n\n---");
-                System.out.println(act.getDescription());
-                System.out.println("---\n\n\n");
+            for (Kelas k : kelases){
+                for (Student s : k.getStudents()){
+                    Score score1 = new Score(random.nextInt(41) + 60, k, s);
+                    session.persist(score1);
+                    s.getScores().add(score1);
+                    session.persist(s);
+                }
             }
 
+            Student studentViewRapor = student14;
+            System.out.println(String.format(
+                "%s : %.2f", studentViewRapor.getUsername(), studentViewRapor.getIPK()));
+            studentViewRapor.getKHS();
+
+            Set<Student>_student ;
+
+            for (Kelas k : kelases){
+                for (int i = 0 ; i < 3 ; i++){
+                    _student = new HashSet<>();
+                    for (Student s : k.getStudents()){
+                        if(random.nextInt(100) % 4 != 0){
+                            _student.add(s);    
+                        }
+                    }
+                    if (random.nextInt(100) % 3 == 0 ){
+                        Assignment asg = new Assignment(String.format("Tugas ke-%d %s dari %s", i, k.getCourse(), k, k.getTeacher()), k.getCourse(), k, k.getTeacher(), null);
+                        asg.getAssignee().addAll(_student);
+
+                        session.persist(asg);
+                        k.getActivities().add(asg);
+                    } else {
+                        Meeting meet = new Meeting(String.format("Meeting ke-%d %s dari %s", i, k.getCourse(), k, k.getTeacher()), k.getCourse(), k, k.getTeacher(), null);
+                        meet.getAttendee().addAll(_student);
+                        
+                        session.persist(meet);
+                        k.getActivities().add(meet);
+                    }
+                }
+            }
+    
             tr.commit();
         } catch (Exception e){
             if (tr != null) tr.rollback();
@@ -261,3 +266,4 @@ public class Main {
 
     }
 }
+

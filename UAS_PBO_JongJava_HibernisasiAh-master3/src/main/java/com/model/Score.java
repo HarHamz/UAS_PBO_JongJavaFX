@@ -5,12 +5,15 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "score")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Score {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

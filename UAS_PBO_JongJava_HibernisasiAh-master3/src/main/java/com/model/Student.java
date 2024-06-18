@@ -51,12 +51,19 @@ public class Student extends User{
     }
 
     public void getKHS(){
-        System.out.println("Student : " + this.getUsername());
+        System.out.println(String.format("Student %s with GPA of %.2f.",this.getUsername(), this.getIPK()));
         for (Score score : this.scores){
-            System.out.print("\t\t\t\t\t\t\t" + score.getValue() + "\r");
-            System.out.print(score.getKelas().getCourse().getCourseId() + "\t");
-            System.out.println(score.getKelas().getCourse().getName() + "\t\t");
-            // System.out.println();
+
+            System.out.print(String.format(
+                "|%2s %-10s|%5s %-30s|%2s %03d %2s|%n", 
+                "", 
+                score.getKelas().getCourse().getCourseId(),
+                "", 
+                score.getKelas().getCourse().getName(),
+                "", 
+                score.getValue(),
+                ""
+            ));
         }
     }
 }
