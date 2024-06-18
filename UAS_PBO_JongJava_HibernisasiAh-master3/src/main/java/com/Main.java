@@ -36,44 +36,165 @@ public class Main {
             // Commit the transaction
             // tr.commit();
 
-            Teacher teacher = new Teacher("sensei1", "12345", "01020304");
+            Teacher teacher = new Teacher("Jos Timanta Tarigan", "123", "001");
             session.persist(teacher);
 
-            Teacher teacher2 = new Teacher("sensei2", "12345", "01020305");
+            Teacher teacher2 = new Teacher("Mohammad Andri Budiman", "234", "002");
             session.persist(teacher2);
 
-            Student student = new Student("samurai", "1345", "24");
+            Teacher teacher3 = new Teacher("Amer Sharif", "345", "003");
+            session.persist(teacher3);
+
+            Teacher teacher4 = new Teacher("Maya Silvi Lydia", "456", "004");
+            session.persist(teacher4);
+
+            Student student = new Student("Kevin Maverick", "1", "001");
             student.setSupervisor(teacher);
             session.persist(student);
             
-            Student student2 = new Student("ninjitsu", "12345", "25");
+            Student student2 = new Student("Harry Hamara", "2", "002");
             student2.setSupervisor(teacher2);
             session.persist(student2);
-            
-            Student student3 = new Student("ninjatsu", "12345", "26");
-            student3.setSupervisor(teacher2);
+
+            Student student3 = new Student("Gavriel Ernesto", "3", "003");
+            student3.setSupervisor(teacher3);
             session.persist(student3);
+
+            Student student4 = new Student("Jason Sendytio", "4", "004");
+            student4.setSupervisor(teacher4);
+            session.persist(student4);
             
-            Course course = new Course("Game Development", "1K010101");;
+            Student student5 = new Student("Ucok", "5", "005");
+            student5.setSupervisor(teacher);
+            session.persist(student5);
+            
+            Student student6 = new Student("Butet", "6", "006");
+            student6.setSupervisor(teacher2);
+            session.persist(student6);
+
+            Student student7 = new Student("John", "7", "007");
+            student7.setSupervisor(teacher3);
+            session.persist(student7);
+
+            Student student8 = new Student("Jane", "8", "008");
+            student8.setSupervisor(teacher4);
+            session.persist(student8);
+
+            Student student9 = new Student("Harry Potter", "9", "009");
+            student9.setSupervisor(teacher);
+            session.persist(student9);
+            
+            Student student10 = new Student("Hermione Granger", "10", "010");
+            student10.setSupervisor(teacher2);
+            session.persist(student10);
+
+            Student student11 = new Student("Ron Weasley", "11", "011");
+            student11.setSupervisor(teacher3);
+            session.persist(student11);
+
+            Student student12 = new Student("Captain America", "12", "012");
+            student12.setSupervisor(teacher4);
+            session.persist(student12);
+
+            Student student13 = new Student("Iron Man", "13", "013");
+            student13.setSupervisor(teacher);
+            session.persist(student13);
+            
+            Student student14 = new Student("Ant Man", "14", "014");
+            student14.setSupervisor(teacher2);
+            session.persist(student14);
+
+            Student student15 = new Student("Dr Strange", "15", "015");
+            student15.setSupervisor(teacher3);
+            session.persist(student15);
+
+            Student student16 = new Student("Hulk", "16", "016");
+            student16.setSupervisor(teacher4);
+            session.persist(student16);
+
+            Student student17 = new Student("Steve", "17", "017");
+            student.setSupervisor(teacher);
+            session.persist(student17);
+            
+            Student student18 = new Student("Alex", "18", "018");
+            student18.setSupervisor(teacher2);
+            session.persist(student18);
+
+            Student student19 = new Student("Saitama", "19", "019");
+            student19.setSupervisor(teacher3);
+            session.persist(student3);
+
+            Student student20 = new Student("Ririn", "20", "020");
+            student20.setSupervisor(teacher4);
+            session.persist(student20);
+            
+            
+            Course course = new Course("Game Development", "ILK001");
             session.persist(course);
 
-            Course course2 = new Course("Game Development Advanced", "2K010101");;
+            Course course2 = new Course("Game Development Advanced", "ILK002");
             session.persist(course2);
 
-            Kelas kelas = new Kelas("kelas01");
+            Course course3 = new Course("Object Oriented Programming", "ILK003");
+            session.persist(course3);
+
+            Course course4 = new Course("Data Structures", "ILK004");
+            session.persist(course4);
+
+            Kelas kelas = new Kelas("D101");
             kelas.setTeacher(teacher);
             kelas.setCourse(course);
             kelas.getStudents().add(student);
             kelas.getStudents().add(student2);
             kelas.getStudents().add(student3);
-            session.persist(kelas);
+            kelas.getStudents().add(student4);
+            kelas.getStudents().add(student5);
+            kelas.getStudents().add(student6);
+            kelas.getStudents().add(student7);
+            kelas.getStudents().add(student8);
             
-            Kelas kelas2 = new Kelas("kelas02");
+            session.persist(kelas);
+
+            Kelas kelas2 = new Kelas("D102");
             kelas2.setTeacher(teacher2);
             kelas2.setCourse(course2);
-            kelas2.getStudents().add(student2);
-            kelas2.getStudents().add(student3);
+            kelas2.getStudents().add(student5);
+            kelas2.getStudents().add(student6);
+            kelas2.getStudents().add(student7);
+            kelas2.getStudents().add(student8);
+            kelas2.getStudents().add(student9);
+            kelas2.getStudents().add(student10);
+            kelas2.getStudents().add(student11);
+            kelas2.getStudents().add(student12);
             session.persist(kelas2);
+            
+            Kelas kelas3 = new Kelas("D103");
+            kelas3.setTeacher(teacher3);
+            kelas3.setCourse(course3);
+            kelas3.getStudents().add(student9);
+            kelas3.getStudents().add(student10);
+            kelas3.getStudents().add(student11);
+            kelas3.getStudents().add(student12);
+            kelas3.getStudents().add(student13);
+            kelas3.getStudents().add(student14);
+            kelas3.getStudents().add(student15);
+            kelas3.getStudents().add(student16);
+            session.persist(kelas3);
+            
+            Kelas kelas4 = new Kelas("D104");
+            kelas4.setTeacher(teacher4);
+            kelas4.setCourse(course4);
+            kelas4.getStudents().add(student13);
+            kelas4.getStudents().add(student14);
+            kelas4.getStudents().add(student15);
+            kelas4.getStudents().add(student16);
+            kelas4.getStudents().add(student17);
+            kelas4.getStudents().add(student18);
+            kelas4.getStudents().add(student19);
+            kelas4.getStudents().add(student20);
+            session.persist(kelas4);
+            
+            
 
             Score score1 = new Score(85, kelas, student);
             Score score2 = new Score(90, kelas, student2);
