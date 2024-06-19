@@ -1,12 +1,12 @@
-UAS Pemrograman Berorientasi Objek
+# UAS Pemrograman Berorientasi Objek
 
-Kelompok Jong Java
+## Kelompok Jong Java
 
 
-Harry Hamara (221401042)
+- Harry Hamara (221401042)
 
-Gavriel Ernesto Betheloniva Sembiring (221401061)
+- Gavriel Ernesto Betheloniva Sembiring (221401061)
 
-Jason Sendytio (221401069)
+- Jason Sendytio (221401069)
 
-Kevin Maverick (221401080)
+- Kevin Maverick (221401080)
