@@ -10,3 +10,6 @@
 - Jason Sendytio (221401069)
 
 - Kevin Maverick (221401080)
+
+## Link Video:
+- https://youtu.be/BdMpoRX22oM
